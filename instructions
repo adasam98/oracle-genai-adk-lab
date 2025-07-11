@@ -1,0 +1,11 @@
+# Create a project folder with name of your choice
+
+# Create and activate a virtual environment
+
+-- python -m venv venv   
+-- .\venv\Scripts\activate
+
+pip install oci
+pip install "oci[adk]"
+
+
