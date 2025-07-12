@@ -1,12 +1,10 @@
-# oracle-genai-adk-lab
-A collection of practical examples and utilities for working with the OCI Gen AI Agent Development Kit (ADK). This repository demonstrates agent creation, multi-turn conversations, multi-agent orchestration, deterministic workflows, lifecycle hooks, and session management using Python. Authored by Ayyappa Dasam.
+# Oracle OCI ADK Lab [AI Agents]
+A collection of practical examples and utilities for working with the OCI Agent Development Kit (ADK). This repository demonstrates agent creation, funtional calling, RAG, multi-turn conversations, multi-agent orchestration, deterministic workflows, lifecycle hooks, and session management using Python. Authored by Ayyappa Dasam [inspired from Oracle officcial examples in https://docs.oracle.com]
 
 ## OCI Agent Development Kit (ADK) Sample Use Cases
 
-**Tip:** We recommend you use the ADK to develop agents, except if your use case is one of the scenarios outlined in the "when to use OCI SDK" section.
-
 ### Overview
-The OCI Agent Development Kit (ADK) provides high-level APIs to build AI agents on Oracle Cloud, offering a developer experience similar to other leading agent frameworks.
+The OCI ADK provides high-level APIs to build AI agents on Oracle Cloud, offering a developer experience similar to other leading agent frameworks [Google ADK, LangGraph, Crew AI etc.].
 
 With OCI ADK, you can focus on agentic logic that's custom to your business—instead of writing boilerplate code and managing integration details.
 
@@ -56,7 +54,7 @@ Features an agent that can access and utilize multiple tools (e.g., a function a
 - Ideal for customer service scenarios requiring various actions and information retrieval.
 - Easily scalable: add more tools as business needs grow.
 
-### 4. Multi-Turn Conversations
+### 4. Multi-Turn Conversations [Context Memory]
 **Code file:** `04_calculator_multi_turns_agent.py`
 
 **Description:**
@@ -110,3 +108,4 @@ Shows how to programmatically delete user/agent conversation sessions, supportin
 - Meets GDPR and similar data protection requirements.
 - Optimizes storage and cost by removing obsolete sessions.
 - Empowers users and admins to control the conversation data lifecycle.
+
