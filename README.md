@@ -104,6 +104,38 @@ Demonstrates the use of lifecycle hooks to inject custom behavior at various age
 **Description:**
 Shows how to programmatically delete user/agent conversation sessions, supporting privacy, compliance, and data management needs.
 
+## Best Practices for Using OCI Agent Development Kit (ADK)
+
+1. **Choose the ADK for Most Agent Use Cases**
+   
+   Use the ADK to build agents unless your use case is one of the rare scenarios that requires the OCI SDK directly.
+   
+   The ADK is designed to simplify agent creation, lifecycle, tool orchestration, and session management.
+
+2. **Design Agent Logic to be Stateless and Deterministic**
+   
+   Keep agents stateless within a single request/response cycle.
+   
+   Avoid storing transient state in global variables or instance variables within your tools.
+   
+   Ensure that agents produce consistent outputs given the same inputs (deterministic behavior), which is essential for debugging and auditability.
+
+3. **Implement Custom Tools for Business Logic**
+   
+   When you need custom actions or access to backend systems, implement your business logic as ADK tools.
+   
+   Tools should be independent, reusable, and focused on a single responsibility.
+   
+   Use tools to call external APIs, invoke OCI Functions, or perform calculations.
+
+4. **Isolate External Integrations**
+   
+   Encapsulate external dependencies and integrations (databases, APIs, cloud services) within tools, not within the agent itself.
+   
+   This ensures the agent remains portable and easier to test or extend.
+
+5. **Manage Sessions Thoughtfully**
+
 **Key Benefits:**
 - Meets GDPR and similar data protection requirements.
 - Optimizes storage and cost by removing obsolete sessions.
