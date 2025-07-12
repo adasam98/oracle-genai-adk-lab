@@ -54,7 +54,8 @@ Features an agent that can access and utilize multiple tools (e.g., a function a
 - Ideal for customer service scenarios requiring various actions and information retrieval.
 - Easily scalable: add more tools as business needs grow.
 
-### 4. Multi-Turn Conversations [Context Memory]
+### 4. Multi-Turn Conversations
+[Context Memory]
 **Code file:** `04_calculator_multi_turns_agent.py`
 
 **Description:**
@@ -135,9 +136,37 @@ Shows how to programmatically delete user/agent conversation sessions, supportin
    This ensures the agent remains portable and easier to test or extend.
 
 5. **Manage Sessions Thoughtfully**
+   
+   Use ADK's built-in session management for multi-turn conversations or scenarios requiring context.
+   
+   Store only essential context in sessions; avoid persisting sensitive or unnecessary data.
 
-**Key Benefits:**
-- Meets GDPR and similar data protection requirements.
-- Optimizes storage and cost by removing obsolete sessions.
-- Empowers users and admins to control the conversation data lifecycle.
+6. **Secure Sensitive Data**
+   
+   Never log, store, or expose sensitive data (such as secrets, passwords, or PII) unless absolutely necessary.
+   
+   If you must handle such data, always use encryption and adhere to security best practices.
 
+7. **Test, Monitor, and Log Responsibly**
+   
+   Write tests for your agents and tools to validate their logic and ensure reliability.
+   
+   Use monitoring and logging to track agent activity and catch errors early, but avoid logging sensitive data.
+   
+   Monitor for unusual activity or failures and respond appropriately.
+
+8. **Iterate and Improve with Feedback**
+   
+   Continuously refine your agents by incorporating user feedback and analytics.
+   
+   Monitor agent responses to improve accuracy and user satisfaction.
+
+9. **Follow Principle of Least Privilege**
+   
+   Grant only the permissions needed for your agents and tools to function, nothing more.
+   
+   Regularly review and update permissions as requirements change.
+
+10. **Stay Current with Documentation and Updates**
+   
+   Review the OCI ADK documentation regularly for new features, updates, and security guidance.
