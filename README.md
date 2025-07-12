@@ -7,21 +7,39 @@ A collection of practical examples and utilities for working with the OCI Agent 
 The OCI ADK provides high-level APIs to build AI agents on Oracle Cloud, offering a developer experience similar to other leading agent frameworks [Google ADK, LangGraph, Crew AI etc.].
 
 With OCI ADK, you can focus on agentic logic that's custom to your business—instead of writing boilerplate code and managing integration details.
-
 **Example:**
 Instead of spending hours developing a custom function-calling agent with the OCI SDK, you can create that agent in minutes using the ADK.
 
 ### Table of Contents
-1. [Agent with a Function Tool](#1-agent-with-a-function-tool)
-2. [Agent with RAG Tool](#2-agent-with-rag-tool)
-3. [Agent with Multiple Tools](#3-agent-with-multiple-tools)
-4. [Multi-Turn Conversations](#4-multi-turn-conversations)
-5. [Multi-Agent Collaboration](#5-multi-agent-collaboration)
-6. [Deterministic Workflow](#6-deterministic-workflow)
-7. [Lifecycle Hooks](#7-lifecycle-hooks)
-8. [Delete Sessions](#8-delete-sessions)
+1. [How OCI ADK Works High Level Overview](#1-how-oci-adk-works–high-level-overview)
+2. [Agent with a Function Tool](#2-agent-with-a-function-tool)
+3. [Agent with RAG Tool](#3-agent-with-rag-tool)
+4. [Agent with Multiple Tools](#4-agent-with-multiple-tools)
+5. [Multi-Turn Conversations](#5-multi-turn-conversations)
+6. [Multi-Agent Collaboration](#6-multi-agent-collaboration)
+7. [Deterministic Workflow](#7-deterministic-workflow)
+8. [Lifecycle Hooks](#8-lifecycle-hooks)
+9. [Delete Sessions](#9-delete-sessions)
+10. [Best Practices for Using OCI ADK](#10-best-practices-for-using-oci-adk)
 
-### 1. Agent with a Function Tool
+
+### 1. How OCI ADK Works High Level Overview
+Typically, your ADK code is embedded within a larger application—such as a web app, Slackbot, backend service, or standalone script deployed in your own environment.
+
+Using ADK function tools, you can tightly integrate an agent with your local codebase, remote databases, microservices, or any other system, all while leveraging your environment's native authentication.
+
+The ADK communicates with the OCI Generative AI Agents service by calling the agent endpoint. The main agent loop runs remotely in OCI, not in your environment.
+
+When the agent loop needs to use a hosted tool (such as a RAG tool), that call happens directly within the OCI environment—no round trip to your ADK code.
+
+When the agent loop needs to use a local function tool, control is handed back to your ADK code. The ADK executes your local tool logic, then returns the result to the OCI Generative AI Agents service, which continues with the next step in the agent loop.
+
+In summary:
+OCI ADK allows seamless, secure integration between Oracle's cloud-based AI agent orchestration and your local business logic, data, and systems—so your agents can act both in the cloud and in your own environment, as needed.
+
+<img alt="image" src="https://github.com/user-attachments/assets/bbf48b61-c8c7-4024-988b-c8d041e36ea0">
+
+### 2. Agent with a Function Tool
 **Code file:** `01_weather_agent.py`
 
 **Description:**
@@ -32,7 +50,7 @@ Demonstrates how to create an OCI AI Agent that leverages a serverless function 
 - Seamless integration with backend systems or custom logic in a secure, scalable way.
 - Common uses: retrieving inventory, generating quotes, or executing business operations on demand.
 
-### 2. Agent with RAG Tool
+### 3. Agent with RAG Tool
 **Code file:** `02_support_agent.py`
 
 **Description:**
@@ -43,7 +61,7 @@ Showcases an agent equipped with a Retrieval-Augmented Generation (RAG) tool. Th
 - Supports knowledge-driven use cases like compliance, HR, or product support.
 - Keeps agent responses current as new documents are added.
 
-### 3. Agent with Multiple Tools
+### 4. Agent with Multiple Tools
 **Code file:** `03_product_support_agent.py`
 
 **Description:**
@@ -54,7 +72,7 @@ Features an agent that can access and utilize multiple tools (e.g., a function a
 - Ideal for customer service scenarios requiring various actions and information retrieval.
 - Easily scalable: add more tools as business needs grow.
 
-### 4. Multi-Turn Conversations
+### 5. Multi-Turn Conversations
 [Context Memory]
 **Code file:** `04_calculator_multi_turns_agent.py`
 
@@ -66,7 +84,7 @@ Shows an agent capable of maintaining context across multiple conversational tur
 - Useful for troubleshooting, onboarding, or guided workflows.
 - Personalizes the user journey by carrying over important information.
 
-### 5. Multi-Agent Collaboration
+### 6. Multi-Agent Collaboration
 **Code file:** `05_multi_agents.py`
 
 **Description:**
@@ -77,7 +95,7 @@ Illustrates collaboration between multiple specialized agents. For example, a pr
 - Efficiently resolves cross-domain queries or workflows.
 - Modularizes development and maintenance.
 
-### 6. Deterministic Workflow
+### 7. Deterministic Workflow
 **Code file:** `06_multi_step_workflow_agents.py`
 
 **Description:**
@@ -88,7 +106,7 @@ Implements a deterministic, rule-based workflow where the agent strictly follows
 - Suitable for regulated industries and strict business processes.
 - Common uses: onboarding, approvals, regulated transactions.
 
-### 7. Lifecycle Hooks
+### 8. Lifecycle Hooks
 **Code file:** `07_lifecycle_hook.py`
 
 **Description:**
@@ -99,13 +117,13 @@ Demonstrates the use of lifecycle hooks to inject custom behavior at various age
 - Supports monitoring, audit, and personalization.
 - Allows pre- and post-processing for more intelligent operations.
 
-### 8. Delete Sessions
+### 9. Delete Sessions
 **Code file:** `08_delete_sessions.py`
 
 **Description:**
 Shows how to programmatically delete user/agent conversation sessions, supporting privacy, compliance, and data management needs.
 
-## Best Practices for Using OCI Agent Development Kit (ADK)
+### 10. Best Practices for Using OCI ADK
 
 1. **Choose the ADK for Most Agent Use Cases**
    
