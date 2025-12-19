@@ -1,5 +1,8 @@
 # Oracle OCI ADK Lab [AI Agents]
-A collection of practical examples and utilities for working with the OCI Agent Development Kit (ADK). This repository demonstrates agent creation, funtional calling, RAG, multi-turn conversations, multi-agent orchestration, deterministic workflows, lifecycle hooks, and session management using Python. Authored by Ayyappa Dasam [inspired from Oracle official examples in https://docs.oracle.com]
+A collection of practical examples and utilities for working with the OCI Agent Development Kit (ADK). This repository demonstrates agent creation, functional calling, RAG, multi-turn conversations, multi-agent orchestration, deterministic workflows, lifecycle hooks, and session management using Python. Authored by Ayyappa Dasam [inspired from Oracle official examples in https://docs.oracle.com]
+
+## Quick Start
+📋 **New to this repository?** Check out [SETUP.md](SETUP.md) for simple and clear setup instructions.
 
 ## OCI Agent Development Kit (ADK) Sample Use Cases
 
